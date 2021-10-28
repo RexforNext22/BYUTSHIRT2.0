@@ -15,7 +15,7 @@ def AddTShirtPageView(request):
     return HttpResponse(sOutput)
 
 
-def DeletePageView(request):
+def DeleteTShirtPageView(request):
     sOutput = 'Delete T Shirt Page'
     return HttpResponse(sOutput)
 
