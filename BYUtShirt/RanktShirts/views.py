@@ -15,6 +15,16 @@ def AddTShirtPageView(request):
     return HttpResponse(sOutput)
 
 
+def DeletePageView(request):
+    sOutput = 'Delete T Shirt Page'
+    return HttpResponse(sOutput)
+
+
+def EditTShirtPageView(request):
+    sOutput = 'Edit T Shirt Page'
+    return HttpResponse(sOutput)
+
+
 def RankingPageView(request):
     sOutput = 'Ranking Page'
     return HttpResponse(sOutput)
