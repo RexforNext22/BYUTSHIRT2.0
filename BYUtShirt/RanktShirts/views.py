@@ -6,25 +6,21 @@ from django.http import HttpResponse
 
 
 def indexPageView(request):
-    sOutput = 'Index (landing) Page'
-    return HttpResponse(sOutput)
+    
+    return render(request, 'RanktShirts/index.html')
 
 
 def AddTShirtPageView(request):
-    sOutput = 'Add T Shirt Attributes Page'
-    return HttpResponse(sOutput)
+  return render(request, 'RanktShirts/add.html')
 
 
 def DeleteTShirtPageView(request):
-    sOutput = 'Delete T Shirt Page'
-    return HttpResponse(sOutput)
+    return render(request, 'RanktShirts/delete.html')
 
 
 def EditTShirtPageView(request):
-    sOutput = 'Edit T Shirt Page'
-    return HttpResponse(sOutput)
+    return render(request, 'RanktShirts/edit.html')
 
 
 def RankingPageView(request):
-    sOutput = 'Ranking Page'
-    return HttpResponse(sOutput)
+    return render(request, 'RanktShirts/ranking.html')
