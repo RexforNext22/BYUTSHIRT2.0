@@ -11,15 +11,15 @@ def indexPageView(request):
 
 
 def AddTShirtPageView(request):
-  return render(request, 'RanktShirts/add.html')
+  return render(request, 'RanktShirts/ranking.html')
 
 
 def DeleteTShirtPageView(request):
     return render(request, 'RanktShirts/delete.html')
 
 
-def EditTShirtPageView(request):
-    return render(request, 'RanktShirts/edit.html')
+def AboutTShirtPageView(request):
+    return render(request, 'RanktShirts/about.html')
 
 
 def RankingPageView(request):
