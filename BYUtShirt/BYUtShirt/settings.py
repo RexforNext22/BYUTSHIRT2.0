@@ -76,8 +76,11 @@ WSGI_APPLICATION = 'BYUtShirt.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'BYUTShirt2.0', #Name of the database
+        'USER': 'postgres',
+        'PASSWORD' : 'curitibasouth17', 
+        'HOST' : 'localhost'
     }
 }
 
