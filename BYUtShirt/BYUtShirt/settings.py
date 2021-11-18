@@ -10,6 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+# ----------------------------------------------------------------------------------------------------------------------------------------------
+# Super User information
+# Username: adminis
+# Password: admin123
+# ----------------------------------------------------------------------------------------------------------------------------------------------
+
 from pathlib import Path
 
 import os
