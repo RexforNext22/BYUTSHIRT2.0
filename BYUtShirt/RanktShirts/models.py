@@ -3,25 +3,25 @@ from django.db.models.deletion import DO_NOTHING
 
 # Create your models here.
 class Material(models.Model):
-    material_name = models.CharField(max_length=20, unqiue=True)
+    material_name = models.CharField(max_length=20, unique=True)
             
     def __str__(self) :
         return (self.description)
 
 class Category(models.Model):
-    category_name = models.CharField(max_length=20, unqiue=True)
+    category_name = models.CharField(max_length=20, unique=True)
             
     def __str__(self) :
         return (self.description)
 
 class Size(models.Model):
-    size_name = models.CharField(max_length=3, unqiue=True)
+    size_name = models.CharField(max_length=3, unique=True)
             
     def __str__(self) :
         return (self.description)
 
 class PrimaryColor(models.Model):
-    color_name = models.CharField(max_length=20, unqiue=True)
+    color_name = models.CharField(max_length=20, unique=True)
             
     def __str__(self) :
         return (self.description)
