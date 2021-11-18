@@ -35,7 +35,7 @@
             <div class="loading-mask"></div>
         </div>
 
-        <div class="preview-wrapper">
+        {% comment %} <div class="preview-wrapper">
             <div class="switcher-head">
                 <span>Style Switcher</span>
                 <div class="switcher-trigger tf-tools"></div>
@@ -49,17 +49,17 @@
                     <li class="c2" data-color="color-2" title="Green">Green</li>
                     <li class="c3" data-color="color-3" title="Blue">Blue</li>
                 </ul>
-            </div>
+            </div> {% endcomment %}
         </div>
 
         <main class="site-wrapper">
             <div class="pt-table">
                 <div class="pt-tablecell page-contact relative">
                     <!-- .close -->
-                    <a href="./" class="page-close"><i class="tf-ion-close"></i></a>
+                    <a href="{%url 'index'%}"  class="page-close"><i class="tf-ion-close"></i></a>
                     <!-- /.close -->
 
-                    <div class="container">
+                    {% comment %} <div class="container">
                         <div class="row">
                             <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
                                 <div class="page-title text-center">
@@ -171,13 +171,13 @@
                                 </form> <!-- /.row -->
                             </div> <!-- /.col- -->
                         </div> <!-- /.row -->
-                    </div> <!-- /.container -->
+                    </div> <!-- /.container --> {% endcomment %}
 
                     <nav class="page-nav clear">
                         <div class="container">
                             <div class="flex flex-middle space-between">
-                                <span class="prev-page"><a href="testimonials.html" class="link">&larr; Prev Page</a></span>
-                                <span class="copyright hidden-xs">Copyright &copy; 2016 Phantom, All Rights Reserved.</span>
+                                <span class="prev-page"><a href="{%url 'ranking'%}"  class="link">&larr; Prev Page</a></span>
+                                <span class="copyright hidden-xs">Copyright &copy; 2021 BYU T-Shirts, All Rights Reserved.</span>
                             </div>
                         </div>
                         <!-- /.page-nav -->
