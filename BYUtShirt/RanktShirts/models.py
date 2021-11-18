@@ -26,7 +26,7 @@ class PrimaryColor(models.Model):
     def __str__(self) :
         return (self.description)
 
-class ArticleofClothing(models.Model):
+class ArticleOfClothing(models.Model):
     clothing_name = models.CharField(max_length=20)
     rank = models.IntegerField(default = 0)
     price = models.DecimalField((""), max_digits=5, decimal_places=2)
@@ -41,4 +41,4 @@ class ArticleofClothing(models.Model):
 
     def save(self):
         self.clothing_name = self.clothing_name.capitalize()
-        super(ArticleofClothing, self).save()
+        super(ArticleOfClothing, self).save()
