@@ -11,7 +11,7 @@ def indexPageView(request):
 
 
 def AddTShirtPageView(request):
-  return render(request, 'RanktShirts/ranking.html')
+  return render(request, 'RanktShirts/add.html')
 
 
 def DeleteTShirtPageView(request):
