@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import indexPageView, AddTShirtPageView, DeleteTShirtPageView, EditTShirtPageView, RankingPageView
+from .views import indexPageView, AddTShirtPageView, DeleteTShirtPageView, AboutTShirtPageView, RankingPageView
 
 urlpatterns = [
     path("", indexPageView, name="index"),
-    path("Add/", AddTShirtPageView, name="AddTShirt"),
-    path("Delete/", DeleteTShirtPageView, name="DeleteTShirt"),
-    path("Edit/", EditTShirtPageView, name="EditTShirtPageView"),
-    path("Rank/", RankingPageView, name="RankingPageView"),
+    path("Add/", AddTShirtPageView, name="add"),
+    path("Delete/", DeleteTShirtPageView, name="delete"),
+    path("about/", AboutTShirtPageView, name="about"),
+    path("Rank/", RankingPageView, name="ranking"),
 ]
