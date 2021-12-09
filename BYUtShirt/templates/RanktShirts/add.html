@@ -79,11 +79,11 @@
             </div> <!-- ./col- -->
             <div class="col-xs-12 col-sm-6">
                 <div class="input-field name">
-                    <span class= "input-icon" id="material">Mats</span>
+                    <span class= "input-icon" id="material">Cat</span>
                     <select class="form-control" name="material" id="material" required>
-                        <option value="">Choose Material Type</option>
-                        {% for specialty in specialty%}
-                        <option value="{{ specialty }}">{{ specialty }}</option>
+                        <option value="">Choose Category Type</option>
+                        {% for lstCategory in lstCategory%}
+                        <option value="{{ lstCategory }}">{{ lstCategory }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -93,11 +93,11 @@
 
             <div class="col-xs-12 col-sm-6">
                 <div class="input-field email">
-                    <span class= "input-icon" id="category">Cat</span>
+                    <span class= "input-icon" id="category">Mat</span>
                     <select class="form-control" name="category" id="category" required>
                         <option value="">Choose Material Type</option>
-                        {% for specialty in specialty%}
-                        <option value="{{ specialty }}">{{ specialty }}</option>
+                        {% for lstMaterials in lstMaterials%}
+                        <option value="{{ lstMaterials }}">{{ lstMaterials }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -107,8 +107,8 @@
                     <span class= "input-icon" id="size">Size</span>
                     <select class="form-control" name="size" id="size" required>
                         <option value="">Size</option>
-                        {% for specialty in specialty%}
-                        <option value="{{ specialty }}">{{ specialty }}</option>
+                        {% for lstSize in lstSize%}
+                        <option value="{{ lstSize }}">{{ lstSize }}</option>
                         {% endfor %}
                     </select>
                     {% comment %} <input type="text" class="form-control" name="size" placeholder="Size" required> {% endcomment %}

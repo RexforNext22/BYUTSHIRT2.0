@@ -40,12 +40,12 @@ def SaveTShirtPageView(request):
 
         oArticleOfClothing.clothing_name = request.POST.get('clothing_name')
         oArticleOfClothing.price = request.POST.get('price')
-        oArticleOfClothing.material = request.POST.get('material')
+        oArticleOfClothing.material_name = request.POST.get('material')
 
 
-        oArticleOfClothing.category = request.POST.get('category')
-        oArticleOfClothing.size = request.POST.get('size')
-        oArticleOfClothing.primarycolor = request.POST.get('pColor')
+        oArticleOfClothing.category_name = request.POST.get('category')
+        oArticleOfClothing.size_name = request.POST.get('size')
+        oArticleOfClothing.color_name = request.POST.get('pColor')
 
         oArticleOfClothing.save()
     return render(request, 'RanktShirts/index.html')
