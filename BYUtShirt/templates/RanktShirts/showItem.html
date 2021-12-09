@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<p
+style="
+  margin: auto;
+  font-weight: bold;
+  width: 50%;
+  border: 2px solid white;
+  padding: 10px;
+"
+>
+Rank: {{ ArticleOfClothing.rank }} <br />
+Name: {{ ArticleOfClothing.clothing_name }} <br />
+Category: {{ ArticleOfClothing.category }} <br />
+Material: {{ ArticleOfClothing.material }} <br />
+Price: {{ ArticleOfClothing.price }} <br />
+Color: {{ ArticleOfClothing.primarycolor }} <br />
+Size: {{ ArticleOfClothing.size }} <br />
+
+<img src="{{ ArticleOfClothing.photo_main }}" width="600"/>
+
+</p>
+<div style="display: flex; justify-content: space-evenly">
+    <a
+      class="button"
+      style="float: right"
+      href=""
+      >Edit</a
+    >
+    <a
+      class="button"
+      style="float: right"
+      href=""
+      >Delete</a
+    >
+  </div>
+
+{%endblock%}

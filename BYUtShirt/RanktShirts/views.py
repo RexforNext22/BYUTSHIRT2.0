@@ -38,3 +38,12 @@ def RankingPageView(request):
 
 def EditPageView(request):
     return render(request, 'RanktShirts/edit.html')
+
+def showSingleArticlePageView(request, item_id):
+    data = ArticleOfClothing.objects.get(id = item_id)
+    context = {
+        "ArticleOfClothing" : data,
+    }
+
+    return render(request, 'RanktShirts/showItem.html', context)
+
