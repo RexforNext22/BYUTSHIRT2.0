@@ -19,20 +19,35 @@ def indexPageView(request):
 
 def AddTShirtPageView(request):
 
-    return render(request, 'RanktShirts/add.html')
+    lstMaterials = ["Cotton", "Wool", "Plastic"]
+    lstSize = ["XXL", "XL", "L", "M", "S", "XS", "XXS"]
+    lstCategory = ["Shirt", "Sweater", "Hoodie"]
+
+    context = {
+        "lstMaterials" : lstMaterials,
+        "lstSize" : lstSize,
+        "lstCategory" : lstCategory
+    }
+
+
+    return render(request, 'RanktShirts/add.html', context)
 
 
 def SaveTShirtPageView(request):
-    oArticleOfClothing = ArticleOfClothing()
+    if request.method == 'POST' :
+        oArticleOfClothing = ArticleOfClothing()
 
-    oArticleOfClothing.clothing_name = request.POST['clothing_name']
-    oArticleOfClothing.price = request.POST['price']
-    oArticleOfClothing.material = request.POST['material']
-    oArticleOfClothing.category = request.POST['category']
-    oArticleOfClothing.size = request.POST['size']
-    oArticleOfClothing.primarycolor = request.POST['pColor']
 
-    oArticleOfClothing.save()
+        oArticleOfClothing.clothing_name = request.POST.get('clothing_name')
+        oArticleOfClothing.price = request.POST.get('price')
+        oArticleOfClothing.material = request.POST.get('material')
+
+
+        oArticleOfClothing.category = request.POST.get('category')
+        oArticleOfClothing.size = request.POST.get('size')
+        oArticleOfClothing.primarycolor = request.POST.get('pColor')
+
+        oArticleOfClothing.save()
     return render(request, 'RanktShirts/index.html')
 
 
