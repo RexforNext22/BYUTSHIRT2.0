@@ -24,3 +24,6 @@ def AboutTShirtPageView(request):
 
 def RankingPageView(request):
     return render(request, 'RanktShirts/ranking.html')
+
+def EditPageView(request):
+    return render(request, 'RanktShirts/edit.html')
