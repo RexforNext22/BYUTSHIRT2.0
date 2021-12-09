@@ -34,3 +34,7 @@ def RankingPageView(request):
         "ArticleOfClothing" : data,
     }
     return render(request, 'RanktShirts/ranking.html', context)
+    
+
+def EditPageView(request):
+    return render(request, 'RanktShirts/edit.html')
