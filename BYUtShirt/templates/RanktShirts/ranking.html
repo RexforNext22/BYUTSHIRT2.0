@@ -60,13 +60,30 @@
                     <!-- /.close -->
                     <div style="text-align: center">
                         <h3>Rankings:</h3><br>
-                         {% for ArticleOfClothing in ArticleOfClothing %}
-                     
-                         {{ ArticleOfClothing.clothing_name }}<br><!--The names of the column names have to match perfectly-->
-                         
-                       {% endfor %}
                          </div>
-
+                         {% for ArticleOfClothing in ArticleOfClothing %}
+                         <div style="display: flex; justify-content: center;">
+                           <table style="display: flex; flex: 0 0 25em; width: 600px; padding-right: 10px; border: 1px solid white;">
+                             <td>
+                               <p
+                                 style="
+                                   
+                                   width: 500px;
+                                   {% comment %} border: 2px solid CornflowerBlue; {% endcomment %}
+                                   padding: 10px;
+                                 "
+                               >
+                               {{ ArticleOfClothing.clothing_name }}<!--The names of the column names have to match perfectly-->
+                             </td>
+                             <td>
+                                 <a class="button" href="{% url 'showSingleArticle' drug_id=drug.drugid %}"
+                                   >View</a
+                                   >
+                               </p>
+                             </td>
+                           </table>
+                         </div>
+                         {% endfor %}
 
                     <nav class="page-nav clear">
                         <div class="container">
