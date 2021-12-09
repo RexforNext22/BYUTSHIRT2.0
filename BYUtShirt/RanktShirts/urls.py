@@ -10,8 +10,8 @@ urlpatterns = [
     path("Rank/", RankingPageView, name="ranking"),
     path("Edit/<int:AoC_id>", EditPageView, name="edit"),
     path("showSingleArticle/<int:item_id>/", showSingleArticlePageView, name="showSingleArticle"),
-    path("updateArticle") # Show an individual
+    path("updateArticle"), # Show an individual
     path("Edit/", EditPageView, name="edit"),
     path("showSingleArticle/<int:item_id>/", showSingleArticlePageView,name="showSingleArticle"),  # Show an individual
-    path("save/", SaveTShirtPageView, name="save")
+    path("save/", SaveTShirtPageView, name="save"),
 ]

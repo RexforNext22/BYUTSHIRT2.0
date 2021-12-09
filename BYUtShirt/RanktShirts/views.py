@@ -91,7 +91,7 @@ def showSingleArticlePageView(request, item_id):
 
 def updatePrescriberPageView(request, AoC_id) :
     if request.method == 'POST' :
-        prescriber_id = request.POST['NPI']
+  
         article = ArticleOfClothing.objects.get(id = AoC_id)
 
         article.clothing_name = request.POST['NPI']
