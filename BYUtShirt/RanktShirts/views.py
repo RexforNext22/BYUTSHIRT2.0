@@ -69,8 +69,15 @@ def RankingPageView(request):
 
 def EditPageView(request, AoC_id):
     data = ArticleOfClothing.objects.get(id = AoC_id)
+    lstMaterials = ["Cotton", "Wool", "Plastic"]
+    lstSize = ["XXL", "XL", "L", "M", "S", "XS", "XXS"]
+    lstCategory = ["Shirt", "Sweater", "Hoodie"]
+
     context = {
         "ArticleOfClothing": data,
+        "lstMaterials" : lstMaterials,
+        "lstSize" : lstSize,
+        "lstCategory" : lstCategory
     }
 
     return render(request, 'RanktShirts/edit.html', context)
@@ -87,23 +94,22 @@ def showSingleArticlePageView(request, item_id):
 
    
 
-def updatePrescriberPageView(request, AoC_id) :
+def UpdateArticlePageView(request, AoC_id) :
     if request.method == 'POST' :
-        prescriber_id = request.POST['NPI']
         article = ArticleOfClothing.objects.get(id = AoC_id)
 
-        article.clothing_name = request.POST['NPI']
-        article.fname = request.POST['first_name']
-        article.lname = request.POST['last_name']
-        article.gender = request.POST['gender']
-        article.state_id = request.POST['state']
-        article.credentials = request.POST['credentials']
+        article.clothing_name = request.POST['clothing_name']
+        article.price = request.POST['price']
+        article.material_name = request.POST['material_name']
+        article.category_name = request.POST['category_name']
+        article.size_name = request.POST['size_name']
+        article.color_name = request.POST['color_name']
 
         
         
         article.save()
      
 
-    return savePageView(request)
+    return RankingPageView(request)
 
 

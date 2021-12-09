@@ -4,7 +4,7 @@
   id="contact-form"
   class="row contact-form no-gutter"
   style="padding: 2rem 2rem 2rem 2rem"
-  action="{% url 'edit' AoC_id = ArticleOfClothing.id  %}"
+  action="{% url 'update' AoC_id = ArticleOfClothing.id  %}"
   method="post"
 >
 <input style="width: 250px" type="hidden" id="id" name="id" value={{ ArticleOfClothing.id }}>
@@ -51,9 +51,9 @@
     <div class="input-field email">
       <span class="input-icon" id="category">Cat</span>
       <select class="form-control" name="category" id="category" required>
-        <option value="">Choose Material Type</option>
-        {% for specialty in specialty%}
-        <option value="{{ specialty }}">{{ specialty }}</option>
+        <option value="">Choose Category</option>
+        {% for lstCategory in lstCategory%}
+        <option value="{{ lstCategory }}">{{ lstCategory }}</option>
         {% endfor %}
       </select>
     </div>
@@ -64,19 +64,10 @@
       <span class="input-icon" id="size">Size</span>
       <select class="form-control" name="size" id="size" required>
         <option value="">Size</option>
-        {% for specialty in specialty%}
-        <option value="{{ specialty }}">{{ specialty }}</option>
+        {% for lstSize in lstSize%}
+        <option value="{{ lstSize }}">{{ lstSize }}</option>
         {% endfor %}
       </select>
-      {% comment %}
-      <input
-        type="text"
-        class="form-control"
-        name="size"
-        placeholder="Size"
-        required
-      />
-      {% endcomment %}
     </div>
   </div>
   <!-- ./col- -->

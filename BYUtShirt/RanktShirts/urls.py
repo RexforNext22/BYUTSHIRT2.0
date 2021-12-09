@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import indexPageView, AddTShirtPageView, DeleteTShirtPageView, AboutTShirtPageView, RankingPageView, EditPageView
-from .views import showSingleArticlePageView, SaveTShirtPageView
+from .views import showSingleArticlePageView, UpdateArticlePageView
 
 urlpatterns = [
     path("", indexPageView, name="index"),
@@ -9,9 +9,6 @@ urlpatterns = [
     path("about/", AboutTShirtPageView, name="about"),
     path("Rank/", RankingPageView, name="ranking"),
     path("Edit/<int:AoC_id>", EditPageView, name="edit"),
-    path("showSingleArticle/<int:item_id>/", showSingleArticlePageView, name="showSingleArticle"),
-    path("updateArticle") # Show an individual
-    path("Edit/", EditPageView, name="edit"),
-    path("showSingleArticle/<int:item_id>/", showSingleArticlePageView,name="showSingleArticle"),  # Show an individual
-    path("save/", SaveTShirtPageView, name="save")
+    path("showSingleArticle/<int:item_id>/", showSingleArticlePageView, name="showSingleArticle"),  # Show an individual
+    path("updateArticle/<int:AoC_id>", UpdateArticlePageView, name="update")
 ]
