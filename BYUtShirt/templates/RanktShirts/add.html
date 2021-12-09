@@ -67,8 +67,8 @@
         <form id="contact-form" class="row contact-form no-gutter" style="padding: 2rem 2rem 2rem 2rem" action="{% url 'save' %}" method="POST"> {% csrf_token %}
             <div class="col-xs-12 col-sm-6">
                 <div class="input-field name">
-                    <span class= "input-icon">Title</span>
-                    <input type="text" id="clothing_name" class="form-control"  placeholder="Clothing Name" autofocus required>
+                    <span class= "input-icon" id="clothing_name">Title</span>
+                    <input type="text" class="form-control" name="clothing_name" placeholder="Clothing Name" autofocus required>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6">
