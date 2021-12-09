@@ -64,11 +64,11 @@
             <h1>Add Some Swag!</h1>
         </div>
 
-        <form id="contact-form" class="row contact-form no-gutter" style="padding: 2rem 2rem 2rem 2rem" action="#" method="post">
+        <form id="contact-form" class="row contact-form no-gutter" style="padding: 2rem 2rem 2rem 2rem" action="{% url 'save' %}" method="post"> {% csrf_token %}
             <div class="col-xs-12 col-sm-6">
                 <div class="input-field name">
-                    <span class= "input-icon" id="name">Title</span>
-                    <input type="text" class="form-control"  placeholder="Clothing Name" autofocus required>
+                    <span class= "input-icon">Title</span>
+                    <input type="text" id="clothing_name" class="form-control"  placeholder="Clothing Name" autofocus required>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6">
@@ -115,7 +115,7 @@
                 </div>
             </div> <!-- ./col- -->
             <div class="col-xs-12 col-sm-6">
-                <div class="input-field name">
+                <div class="input-field email">
                     <span class= "input-icon" id="pColor">Clr</span>
                     <input type="text" class="form-control" name="pColor" placeholder="Primary Color" required>
                 </div>
