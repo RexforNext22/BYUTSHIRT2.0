@@ -5,6 +5,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
+# Import models
+from .models import Material
+from .models import Category
+from .models import Size
+from .models import ArticleOfClothing, PrimaryColor
+
 def indexPageView(request):
     
     return render(request, 'RanktShirts/index.html')
@@ -23,7 +29,12 @@ def AboutTShirtPageView(request):
 
 
 def RankingPageView(request):
-    return render(request, 'RanktShirts/ranking.html')
+    data = ArticleOfClothing.objects.all()
+    context = {
+        "ArticleOfClothing" : data,
+    }
+    return render(request, 'RanktShirts/ranking.html', context)
+    
 
 def EditPageView(request):
     return render(request, 'RanktShirts/edit.html')
