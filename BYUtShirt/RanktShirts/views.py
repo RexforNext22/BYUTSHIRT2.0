@@ -36,14 +36,31 @@ def RankingPageView(request):
     return render(request, 'RanktShirts/ranking.html', context)
     
 
-def EditPageView(request):
-    return render(request, 'RanktShirts/edit.html')
+def EditPageView(request, AoC_id):
+    data = ArticleOfClothing.objects.get(id = AoC_id)
 
-def showSingleArticlePageView(request, item_id):
-    data = ArticleOfClothing.objects.get(id = item_id)
     context = {
         "ArticleOfClothing" : data,
     }
 
-    return render(request, 'RanktShirts/showItem.html', context)
+    return render(request, 'RanktShirts/edit.html', context)
+
+def updatePrescriberPageView(request, AoC_id) :
+    if request.method == 'POST' :
+        prescriber_id = request.POST['NPI']
+        article = ArticleOfClothing.objects.get(id = AoC_id)
+
+        article.clothing_name = request.POST['NPI']
+        article.fname = request.POST['first_name']
+        article.lname = request.POST['last_name']
+        article.gender = request.POST['gender']
+        article.state_id = request.POST['state']
+        article.credentials = request.POST['credentials']
+
+        
+        
+        article.save()
+     
+
+    return savePageView(request)
 
