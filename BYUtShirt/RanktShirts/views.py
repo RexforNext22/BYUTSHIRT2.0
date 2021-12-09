@@ -11,13 +11,46 @@ from .models import Category
 from .models import Size
 from .models import ArticleOfClothing, PrimaryColor
 
+
 def indexPageView(request):
-    
+
     return render(request, 'RanktShirts/index.html')
 
 
 def AddTShirtPageView(request):
-  return render(request, 'RanktShirts/add.html')
+
+    lstMaterials = ["Cotton", "Wool", "Plastic"]
+    lstSize = ["XXL", "XL", "L", "M", "S", "XS", "XXS"]
+    lstCategory = ["Shirt", "Sweater", "Hoodie"]
+
+    context = {
+        "lstMaterials" : lstMaterials,
+        "lstSize" : lstSize,
+        "lstCategory" : lstCategory
+    }
+
+
+    return render(request, 'RanktShirts/add.html', context)
+
+
+def SaveTShirtPageView(request):
+    if request.method == 'POST' :
+        oArticleOfClothing = ArticleOfClothing()
+
+
+        oArticleOfClothing.clothing_name = request.POST.get('clothing_name')
+        oArticleOfClothing.price = request.POST['price']
+        oArticleOfClothing.material_name = request.POST['material']
+
+
+        oArticleOfClothing.category_name = request.POST['category']
+        oArticleOfClothing.size_name = request.POST['size']
+        oArticleOfClothing.color_name = request.POST['pColor']
+
+        # print(oArticleOfClothing)
+        oArticleOfClothing.save()
+
+    return render(request, 'RanktShirts/index.html')
 
 
 def DeleteTShirtPageView(request, ArticleOfClothingID):
@@ -33,19 +66,54 @@ def AboutTShirtPageView(request):
 def RankingPageView(request):
     data = ArticleOfClothing.objects.all()
     context = {
-        "ArticleOfClothing" : data,
+        "ArticleOfClothing": data,
     }
     return render(request, 'RanktShirts/ranking.html', context)
-    
 
-def EditPageView(request):
-    return render(request, 'RanktShirts/edit.html')
+
+def EditPageView(request, AoC_id):
+    data = ArticleOfClothing.objects.get(id = AoC_id)
+    lstMaterials = ["Cotton", "Wool", "Plastic"]
+    lstSize = ["XXL", "XL", "L", "M", "S", "XS", "XXS"]
+    lstCategory = ["Shirt", "Sweater", "Hoodie"]
+
+    context = {
+        "ArticleOfClothing": data,
+        "lstMaterials" : lstMaterials,
+        "lstSize" : lstSize,
+        "lstCategory" : lstCategory
+    }
+
+    return render(request, 'RanktShirts/edit.html', context)
+
 
 def showSingleArticlePageView(request, item_id):
-    data = ArticleOfClothing.objects.get(id = item_id)
+    data = ArticleOfClothing.objects.get(id=item_id)
     context = {
-        "ArticleOfClothing" : data,
+        "ArticleOfClothing": data,
     }
 
     return render(request, 'RanktShirts/showItem.html', context)
+    
+
+   
+
+def UpdateArticlePageView(request, AoC_id) :
+    if request.method == 'POST' :
+        article = ArticleOfClothing.objects.get(id = AoC_id)
+
+        article.clothing_name = request.POST['clothing_name']
+        article.price = request.POST['price']
+        article.material_name = request.POST['material_name']
+        article.category_name = request.POST['category_name']
+        article.size_name = request.POST['size_name']
+        article.color_name = request.POST['color_name']
+
+        
+        
+        article.save()
+     
+
+    return RankingPageView(request)
+
 

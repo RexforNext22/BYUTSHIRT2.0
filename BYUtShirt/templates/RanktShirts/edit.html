@@ -1,2 +1,103 @@
-{% extends 'base.html' %} {% load static %} {% block content %} Hello
+{% extends 'base.html' %} {% load static %} {% block content %}
+<!-- prettier-ignore -->
+<form
+  id="contact-form"
+  class="row contact-form no-gutter"
+  style="padding: 2rem 2rem 2rem 2rem"
+  action="{% url 'update' AoC_id = ArticleOfClothing.id  %}"
+  method="post"
+>
+<input style="width: 250px" type="hidden" id="id" name="id" value={{ ArticleOfClothing.id }}>
+  <div class="col-xs-12 col-sm-6">
+    <div class="input-field name">
+      <span class="input-icon" id="name">Title</span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Clothing Name"
+        value={{ ArticleOfClothing.clothing_name }}
+        autofocus
+        required
+      />
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <div class="input-field email">
+      <span class="input-icon" id="price">$</span>
+      <input
+        type="text"
+        class="form-control"
+        name="price"
+        placeholder="Price"
+        value={{ ArticleOfClothing.price }}
+        required
+      />
+    </div>
+  </div>
+  <!-- ./col- -->
+  <div class="col-xs-12 col-sm-6">
+    <div class="input-field name">
+      <span class="input-icon" id="material">Mats</span>
+      <select class="form-control" name="material" id="material" required>
+        <option value="">Choose Material Type</option>
+        {% for specialty in ArticleofClothing%}
+        <option value="{{ ArticleOfClothing.material }}">{{ specialty }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-6">
+    <div class="input-field email">
+      <span class="input-icon" id="category">Cat</span>
+      <select class="form-control" name="category" id="category" required>
+        <option value="">Choose Category</option>
+        {% for lstCategory in lstCategory%}
+        <option value="{{ lstCategory }}">{{ lstCategory }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+  <!-- ./col- -->
+  <div class="col-xs-12 col-sm-6">
+    <div class="input-field name">
+      <span class="input-icon" id="size">Size</span>
+      <select class="form-control" name="size" id="size" required>
+        <option value="">Size</option>
+        {% for lstSize in lstSize%}
+        <option value="{{ lstSize }}">{{ lstSize }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+  <!-- ./col- -->
+  <div class="col-xs-12 col-sm-6">
+    <div class="input-field name">
+      <span class="input-icon" id="pColor">Clr</span>
+      <input
+        type="text"
+        class="form-control"
+        name="pColor"
+        placeholder="Primary Color"
+        required
+      />
+    </div>
+  </div>
+  <!-- ./col- -->
+  <div class="col-xs-12 col-sm-6">
+    <div class="input-field name">
+      <span class="btn-border">
+        <button
+          type="submit"
+          class="btn btn-primary btn-custom-border text-uppercase"
+        >
+          Update
+        </button>
+      </span>
+    </div>
+    <div class="msg-success">Your t-shirt was added!</div>
+    <div class="msg-failed">Something went wrong, please try again later</div>
+  </div>
+  <!-- ./col- -->
+</form>
 {%endblock%}
