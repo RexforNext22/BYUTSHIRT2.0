@@ -58,6 +58,14 @@
                     <!-- .close -->
                     <a href="{%url 'index'%}" class="page-close"><i class="tf-ion-close"></i></a>
                     <!-- /.close -->
+                    <div style="text-align: center">
+                        <h3>Rankings:</h3><br>
+                         {% for ArticleOfClothing in ArticleOfClothing %}
+                     
+                         {{ ArticleOfClothing.clothing_name }}<br><!--The names of the column names have to match perfectly-->
+                         
+                       {% endfor %}
+                         </div>
 
 
                     <nav class="page-nav clear">
@@ -74,7 +82,9 @@
 
                 </div> <!-- /.pt-tablecell -->
             </div> <!-- /.pt-table -->
+
         </main> <!-- /.site-wrapper -->
+
         
         <!-- ================================
         JavaScript Libraries
