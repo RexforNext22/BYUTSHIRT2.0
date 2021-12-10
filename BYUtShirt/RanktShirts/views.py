@@ -49,13 +49,13 @@ def SaveTShirtPageView(request):
         # print(oArticleOfClothing)
         oArticleOfClothing.save()
 
-    return render(request, 'RanktShirts/ranking.html')
+    return render(request, 'RanktShirts/index.html')
 
 
 def DeleteTShirtPageView(request, ArticleOfClothingID):
     data = ArticleOfClothing.objects.get(id=ArticleOfClothingID)
     data.delete()
-    return indexPageView(request)
+    return RankingPageView(request)
 
 
 def AboutTShirtPageView(request):
