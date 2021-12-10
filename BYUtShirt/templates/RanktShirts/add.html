@@ -1,4 +1,4 @@
-{% load static %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <!DOCTYPE html>
 <html class="no-js" lang="">
     <head>
@@ -135,17 +135,6 @@
                 <div class="msg-failed">Something went wrong, please try again later</div>
             </div> <!-- ./col- -->
         </form>
-
-                    <nav class="page-nav clear">
-                        <div class="container">
-                            <div class="flex flex-middle space-between">
-                                <span class="prev-page"><a href="{%url 'index'%}" class="link">&larr; Prev Page</a></span>
-                                <span class="copyright hidden-xs">Copyright &copy; 2021 BYU T-Shirts, All Rights Reserved.</span>
-                                <span class="next-page"><a href="{%url 'ranking'%}"  class="link">Next Page &rarr;</a></span>
-                            </div>
-                        </div>
-                        <!-- /.page-nav -->
-                    </nav>
                     <!-- /.container -->
                 </div> <!-- /.pt-tablecell -->
             </div> <!-- /.pt-table -->
@@ -164,3 +153,4 @@
         <script src="{% static 'js/main.js'%}"></script>
     </body>
 </html>
+{%endblock%}
