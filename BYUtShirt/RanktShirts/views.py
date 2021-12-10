@@ -75,12 +75,14 @@ def EditPageView(request, AoC_id):
     lstMaterials = ["Cotton", "Wool", "Plastic"]
     lstSize = ["XXL", "XL", "L", "M", "S", "XS", "XXS"]
     lstCategory = ["Shirt", "Sweater", "Hoodie"]
+    lstColor = ["Blue", "Red", "White", "Yellow", "Green", "Purple", "Orange"]
 
     context = {
         "ArticleOfClothing": data,
         "lstMaterials": lstMaterials,
         "lstSize": lstSize,
-        "lstCategory": lstCategory
+        "lstCategory": lstCategory,
+        "lstColor": lstColor
     }
 
     return render(request, 'RanktShirts/edit.html', context)
@@ -108,4 +110,4 @@ def UpdateArticlePageView(request, AoC_id):
 
         article.save()
 
-    return indexPageView(request)
+    return RankingPageView(request)

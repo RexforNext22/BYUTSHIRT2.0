@@ -1,4 +1,6 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
+{% comment %} This will dynamically display all the fields of a given entry in 
+the articlesOfClothing table {% endcomment %}
 <p
   style="
     margin: auto;
@@ -16,12 +18,14 @@
   Size: {{ ArticleOfClothing.size }} <br />
 </p>
 <div style="display: flex; justify-content: space-evenly">
+  {% comment %} This will save the changes they made to the id of the entry they were editing {% endcomment %}
   <a
     class="button"
     style="float: right"
     href="{% url 'edit' AoC_id=ArticleOfClothing.id%}"
     >Edit</a
   >
+  {% comment %} Delete button to delete entry entirely {% endcomment %}
   <a class="button" style="float: right" onclick="alert('Successfully Deleted')" href="{% url 'delete' ArticleOfClothingID=ArticleOfClothing.id%}">Delete</a>
 </div>
 
