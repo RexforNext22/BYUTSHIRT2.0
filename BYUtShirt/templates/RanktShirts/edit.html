@@ -6,7 +6,8 @@
   action="{% url 'update' AoC_id=ArticleOfClothing.id  %}"
   method="POST"
 > {% csrf_token %}
-<input style="width: 250px" type="hidden" id="clothing_id" name="clothing_id" value={{ ArticleOfClothing.id }}>
+<input style="width: 250px" type="hidden" id="clothing_id"value={{ ArticleOfClothing.id }}>
+
   <div class="col-xs-12 col-sm-6">
     <div class="input-field name">
       <span class="input-icon" id="clothing_name">Title</span>
