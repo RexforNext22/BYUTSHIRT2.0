@@ -99,7 +99,7 @@ def UpdateArticlePageView(request, AoC_id):
     if request.method == 'POST':
         article = ArticleOfClothing.objects.get(id=AoC_id)
 
-        article.clothing_name = request.POST['clothing_name']
+        article.clothing_name = request.POST.get('clothing_name')
         article.price = request.POST['price']
         article.material_id = request.POST['material']
         article.category_id = request.POST['category']
