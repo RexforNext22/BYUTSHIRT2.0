@@ -6,7 +6,7 @@
   style="padding: 2rem 2rem 2rem 2rem"
   action="{% url 'update' AoC_id=ArticleOfClothing.id  %}"
   method="POST"
->
+> {% csrf_token %}
 <input style="width: 250px" type="hidden" id="clothing_name" name="clothing_name" value={{ ArticleOfClothing.id }}>
   <div class="col-xs-12 col-sm-6">
     <div class="input-field name">
@@ -18,7 +18,6 @@
         placeholder="Clothing Name"
         value="{{ ArticleOfClothing.clothing_name }}"
         autofocus
-        required
       />
     </div>
   </div>
@@ -32,7 +31,6 @@
         id="price"
         placeholder="Price"
         value={{ ArticleOfClothing.price }}
-        required
       />
     </div>
   </div>
@@ -86,7 +84,6 @@
         id="pColor"
         value="{{ ArticleOfClothing.primarycolor }}"
         placeholder="Primary Color"
-        required
       />
     </div>
   </div>
