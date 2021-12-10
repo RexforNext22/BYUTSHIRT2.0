@@ -53,7 +53,7 @@ def SaveTShirtPageView(request):
 def DeleteTShirtPageView(request, ArticleOfClothingID):
     data = ArticleOfClothing.objects.get(id=ArticleOfClothingID)
     data.delete()
-    return RankingPageView(request)
+    return indexPageView(request)
 
 
 def AboutTShirtPageView(request):
