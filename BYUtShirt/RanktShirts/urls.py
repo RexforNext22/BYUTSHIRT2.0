@@ -5,7 +5,7 @@ from .views import showSingleArticlePageView, UpdateArticlePageView
 urlpatterns = [
     path("", indexPageView, name="index"),
     path("Add/", AddTShirtPageView, name="add"),
-    path("Delete/", DeleteTShirtPageView, name="delete"),
+    path("Delete/<int:ArticleOfClothingID>", DeleteTShirtPageView, name="delete"),
     path("about/", AboutTShirtPageView, name="about"),
     path("Rank/", RankingPageView, name="ranking"),
     path("Edit/<int:AoC_id>", EditPageView, name="edit"),

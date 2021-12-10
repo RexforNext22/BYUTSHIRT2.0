@@ -52,8 +52,10 @@ def SaveTShirtPageView(request):
     return render(request, 'RanktShirts/ranking.html')
 
 
-def DeleteTShirtPageView(request):
-    return render(request, 'RanktShirts/delete.html')
+def DeleteTShirtPageView(request, ArticleOfClothingID):
+    data = ArticleOfClothing.objects.get(id=ArticleOfClothingID)
+    data.delete()
+    return indexPageView(request)
 
 
 def AboutTShirtPageView(request):
