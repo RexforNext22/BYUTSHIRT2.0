@@ -101,10 +101,10 @@ def UpdateArticlePageView(request, AoC_id):
 
         article.clothing_name = request.POST['clothing_name']
         article.price = request.POST['price']
-        article.material_name = request.POST['material']
-        article.category_name = request.POST['category']
-        article.size_name = request.POST['size']
-        article.color_name = request.POST['pColor']
+        article.material_id = request.POST['material']
+        article.category_id = request.POST['category']
+        article.size_id = request.POST['size']
+        article.primarycolor_id = request.POST['pColor']
 
         article.save()
 
