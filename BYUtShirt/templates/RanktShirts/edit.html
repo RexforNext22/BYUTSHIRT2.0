@@ -4,8 +4,8 @@
   id="contact-form"
   class="row contact-form no-gutter"
   style="padding: 2rem 2rem 2rem 2rem"
-  action="{% url 'update' AoC_id = ArticleOfClothing.id  %}"
-  method="post"
+  action="{% url 'update' AoC_id=ArticleOfClothing.id  %}"
+  method="POST"
 >
 <input style="width: 250px" type="hidden" id="id" name="id" value={{ ArticleOfClothing.id }}>
   <div class="col-xs-12 col-sm-6">
@@ -15,7 +15,7 @@
         type="text"
         class="form-control"
         placeholder="Clothing Name"
-        value={{ ArticleOfClothing.clothing_name }}
+        value="{{ ArticleOfClothing.clothing_name }}"
         autofocus
         required
       />
@@ -39,9 +39,10 @@
     <div class="input-field name">
       <span class="input-icon" id="material">Mats</span>
       <select class="form-control" name="material" id="material" required>
+        <option value="{{ ArticleOfClothing.material }}" selected>{{ ArticleOfClothing.material }}</option>
         <option value="">Choose Material Type</option>
-        {% for specialty in ArticleofClothing%}
-        <option value="{{ ArticleOfClothing.material }}">{{ specialty }}</option>
+        {% for lstMaterials in lstMaterials%}
+        <option value="{{ lstMaterials }}">{{ lstMaterials }}</option>
         {% endfor %}
       </select>
     </div>
@@ -51,6 +52,7 @@
     <div class="input-field email">
       <span class="input-icon" id="category">Cat</span>
       <select class="form-control" name="category" id="category" required>
+        <option value="{{ ArticleOfClothing.category }}" selected>{{ ArticleOfClothing.category }}</option>
         <option value="">Choose Category</option>
         {% for lstCategory in lstCategory%}
         <option value="{{ lstCategory }}">{{ lstCategory }}</option>
@@ -63,6 +65,7 @@
     <div class="input-field name">
       <span class="input-icon" id="size">Size</span>
       <select class="form-control" name="size" id="size" required>
+        <option value="{{ ArticleOfClothing.size }}" selected>{{ ArticleOfClothing.size }}</option>
         <option value="">Size</option>
         {% for lstSize in lstSize%}
         <option value="{{ lstSize }}">{{ lstSize }}</option>
@@ -78,6 +81,7 @@
         type="text"
         class="form-control"
         name="pColor"
+        value="{{ ArticleOfClothing.primarycolor }}"
         placeholder="Primary Color"
         required
       />
