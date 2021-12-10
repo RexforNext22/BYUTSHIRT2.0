@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<!-- prettier-ignore -->
+{% comment %} This form will update the articlesOfClothing table rows {% endcomment %}
 <form
   class="row contact-form no-gutter"
   style="padding: 2rem 2rem 2rem 2rem"
@@ -75,33 +75,31 @@
   </div>
   <!-- ./col- -->
   <div class="col-xs-12 col-sm-6">
-    <div class="input-field name">
+    <div class="input-field email">
       <span class="input-icon" id="pColor">Clr</span>
-      <input
-        type="text"
-        class="form-control"
-        name="pColor"
-        id="pColor"
-        value="{{ ArticleOfClothing.primarycolor }}"
-        placeholder="Primary Color"
-      />
+      <select class="form-control" name="pColor" id="pColor" required>
+        <option value="{{ ArticleOfClothing.primarycolor }}" selected>{{ ArticleOfClothing.primarycolor }}</option>
+        <option value="">Primary Color</option>
+        {% for lstColor in lstColor%}
+        <option value="{{ lstColor }}">{{ lstColor }}</option>
+        {% endfor %}
+    </select>
     </div>
   </div>
   <!-- ./col- -->
+  {% comment %} This will submit the changes {% endcomment %}
   <div class="col-xs-12 col-sm-6">
     <div class="input-field name">
       <span class="btn-border">
         <button
           type="submit"
           class="btn btn-primary btn-custom-border text-uppercase"
-          {% comment %} onclick="alert('Update successfully!');" {% endcomment %}
+          onclick="alert('Update successfully!');"
         >
           Update
         </button>
       </span>
     </div>
-    {% comment %} <div class="msg-success">Your t-shirt was added!</div>
-    <div class="msg-failed">Something went wrong, please try again later</div> {% endcomment %}
   </div>
 </div>
   <!-- ./col- -->

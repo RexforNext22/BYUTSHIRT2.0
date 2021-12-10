@@ -5,19 +5,23 @@
      </div>
      {% for ArticleOfClothing in ArticleOfClothing %}
      <div style="display: flex; justify-content: center;">
+       {% comment %} Table used to display the articles of clothing nicely {% endcomment %}
        <table style="display: flex; flex: 0 0 25em; width: 600px; padding-right: 10px; border: 1px solid white;">
          <td>
+           {% comment %} This will dynamically display the name of each entry in
+           the articlesOfClothing table {% endcomment %}
            <p
              style="
                
                width: 500px;
-               {% comment %} border: 2px solid CornflowerBlue; {% endcomment %}
                padding: 10px;
              "
            >
            {{ ArticleOfClothing.clothing_name }}<!--The names of the column names have to match perfectly-->
          </td>
          <td>
+            {% comment %} This button will bring up all the fields from a given entry in the 
+            articlesOfClothing table. You'll be able to delete and update here {% endcomment %}
              <a class="button" href="{% url 'showSingleArticle' item_id=ArticleOfClothing.id %}"
                >View</a
                >
