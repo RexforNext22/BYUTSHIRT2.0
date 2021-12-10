@@ -1,0 +1,92 @@
+
+CREATE TABLE IF NOT EXISTS public."RanktShirts_category"
+(
+    id bigint NOT NULL,
+    category_name character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "RanktShirts_category_pkey" PRIMARY KEY (id),
+    CONSTRAINT "RanktShirts_category_category_name_key" UNIQUE (category_name)
+);
+
+CREATE TABLE IF NOT EXISTS public."RanktShirts_material"
+(
+    id bigint NOT NULL,
+    material_name character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "RanktShirts_material_pkey" PRIMARY KEY (id),
+    CONSTRAINT "RanktShirts_material_material_name_key" UNIQUE (material_name)
+);
+
+CREATE TABLE IF NOT EXISTS public."RanktShirts_primarycolor"
+(
+    id bigint NOT NULL,
+    color_name character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "RanktShirts_primarycolor_pkey" PRIMARY KEY (id),
+    CONSTRAINT "RanktShirts_primarycolor_color_name_key" UNIQUE (color_name)
+);
+
+CREATE TABLE IF NOT EXISTS public."RanktShirts_size"
+(
+    id bigint NOT NULL,
+    size_name character varying(3) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "RanktShirts_size_pkey" PRIMARY KEY (id),
+    CONSTRAINT "RanktShirts_size_size_name_key" UNIQUE (size_name)
+);
+
+CREATE TABLE IF NOT EXISTS public."RanktShirts_articleofclothing"
+(
+    id bigint NOT NULL,
+    clothing_name character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    price numeric(5,2) NOT NULL,
+    category_id character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    material_id character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    primarycolor_id character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    size_id character varying(3) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "RanktShirts_articleofclothing_pkey" PRIMARY KEY (id),
+    CONSTRAINT "RanktShirts_articleo_category_id_a15683fc_fk_RanktShir" FOREIGN KEY (category_id)
+        REFERENCES public."RanktShirts_category" (category_name) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        DEFERRABLE INITIALLY DEFERRED,
+    CONSTRAINT "RanktShirts_articleo_material_id_07e60077_fk_RanktShir" FOREIGN KEY (material_id)
+        REFERENCES public."RanktShirts_material" (material_name) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        DEFERRABLE INITIALLY DEFERRED,
+    CONSTRAINT "RanktShirts_articleo_primarycolor_id_bfdb9af8_fk_RanktShir" FOREIGN KEY (primarycolor_id)
+        REFERENCES public."RanktShirts_primarycolor" (color_name) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        DEFERRABLE INITIALLY DEFERRED,
+    CONSTRAINT "RanktShirts_articleo_size_id_b565dabc_fk_RanktShir" FOREIGN KEY (size_id)
+        REFERENCES public."RanktShirts_size" (size_name) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        DEFERRABLE INITIALLY DEFERRED
+);
+
+
+INSERT INTO public."RanktShirts_category" (id, category_name) VALUES (1, 'Shirt');
+INSERT INTO public."RanktShirts_category" (id, category_name) VALUES (2, 'Sweater');
+INSERT INTO public."RanktShirts_category" (id, category_name) VALUES (3, 'Hoodie');
+
+
+INSERT INTO public."RanktShirts_material" (id, material_name) VALUES (1, 'Cotton');
+INSERT INTO public."RanktShirts_material" (id, material_name) VALUES (2, 'Wool');
+INSERT INTO public."RanktShirts_material" (id, material_name) VALUES (3, 'Plastic');
+
+
+INSERT INTO public."RanktShirts_primarycolor" (id, color_name) VALUES (1, 'Blue');
+INSERT INTO public."RanktShirts_primarycolor" (id, color_name) VALUES (2, 'Red');
+INSERT INTO public."RanktShirts_primarycolor" (id, color_name) VALUES (3, 'Green');
+INSERT INTO public."RanktShirts_primarycolor" (id, color_name) VALUES (4, 'Yellow');
+INSERT INTO public."RanktShirts_primarycolor" (id, color_name) VALUES (5, 'Orange');
+INSERT INTO public."RanktShirts_primarycolor" (id, color_name) VALUES (6, 'White');
+INSERT INTO public."RanktShirts_primarycolor" (id, color_name) VALUES (7, 'Purple');
+
+
+INSERT INTO public."RanktShirts_size" (id, size_name) VALUES (1, 'XXL');
+INSERT INTO public."RanktShirts_size" (id, size_name) VALUES (2, 'XL');
+INSERT INTO public."RanktShirts_size" (id, size_name) VALUES (3, 'L');
+INSERT INTO public."RanktShirts_size" (id, size_name) VALUES (4, 'M');
+INSERT INTO public."RanktShirts_size" (id, size_name) VALUES (5, 'S');
+INSERT INTO public."RanktShirts_size" (id, size_name) VALUES (6, 'XS');
+INSERT INTO public."RanktShirts_size" (id, size_name) VALUES (7, 'XXS');
