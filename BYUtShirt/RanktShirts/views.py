@@ -101,11 +101,11 @@ def UpdateArticlePageView(request, AoC_id):
 
         article.clothing_name = request.POST['clothing_name']
         article.price = request.POST['price']
-        article.material_name = request.POST['material_name']
-        article.category_name = request.POST['category_name']
-        article.size_name = request.POST['size_name']
-        article.color_name = request.POST['color_name']
+        article.material_name = request.POST['material']
+        article.category_name = request.POST['category']
+        article.size_name = request.POST['size']
+        article.color_name = request.POST['pColor']
 
         article.save()
 
-    return RankingPageView(request)
+    return indexPageView(request)

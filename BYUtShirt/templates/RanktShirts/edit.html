@@ -7,13 +7,14 @@
   action="{% url 'update' AoC_id=ArticleOfClothing.id  %}"
   method="POST"
 >
-<input style="width: 250px" type="hidden" id="id" name="id" value={{ ArticleOfClothing.id }}>
+<input style="width: 250px" type="hidden" id="clothing_name" name="clothing_name" value={{ ArticleOfClothing.id }}>
   <div class="col-xs-12 col-sm-6">
     <div class="input-field name">
-      <span class="input-icon" id="name">Title</span>
+      <span class="input-icon" id="clothing_name">Title</span>
       <input
         type="text"
         class="form-control"
+        id="clothing_name"
         placeholder="Clothing Name"
         value="{{ ArticleOfClothing.clothing_name }}"
         autofocus
@@ -28,6 +29,7 @@
         type="text"
         class="form-control"
         name="price"
+        id="price"
         placeholder="Price"
         value={{ ArticleOfClothing.price }}
         required
@@ -81,6 +83,7 @@
         type="text"
         class="form-control"
         name="pColor"
+        id="pColor"
         value="{{ ArticleOfClothing.primarycolor }}"
         placeholder="Primary Color"
         required
@@ -94,14 +97,16 @@
         <button
           type="submit"
           class="btn btn-primary btn-custom-border text-uppercase"
+          {% comment %} onclick="alert('Update successfully!');" {% endcomment %}
         >
           Update
         </button>
       </span>
     </div>
-    <div class="msg-success">Your t-shirt was added!</div>
-    <div class="msg-failed">Something went wrong, please try again later</div>
+    {% comment %} <div class="msg-success">Your t-shirt was added!</div>
+    <div class="msg-failed">Something went wrong, please try again later</div> {% endcomment %}
   </div>
+</div>
   <!-- ./col- -->
 </form>
 {%endblock%}
