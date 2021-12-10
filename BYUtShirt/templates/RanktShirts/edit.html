@@ -1,16 +1,15 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <!-- prettier-ignore -->
 <form
-  id="contact-form"
   class="row contact-form no-gutter"
   style="padding: 2rem 2rem 2rem 2rem"
   action="{% url 'update' AoC_id=ArticleOfClothing.id  %}"
   method="POST"
 > {% csrf_token %}
-<input style="width: 250px" type="hidden" id="clothing_name" name="clothing_name" value={{ ArticleOfClothing.id }}>
+<input style="width: 250px" type="hidden" id="clothing_id" name="clothing_id" value={{ ArticleOfClothing.id }}>
   <div class="col-xs-12 col-sm-6">
     <div class="input-field name">
-      <span class="input-icon" id="clothing_name">Title</span>
+      <span class="input-icon" id="">Title</span>
       <input
         type="text"
         class="form-control"
