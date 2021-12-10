@@ -22,11 +22,13 @@ def AddTShirtPageView(request):
     lstMaterials = ["Cotton", "Wool", "Plastic"]
     lstSize = ["XXL", "XL", "L", "M", "S", "XS", "XXS"]
     lstCategory = ["Shirt", "Sweater", "Hoodie"]
+    lstColor = ["Blue", "Red", "White", "Yellow", "Green", "Purple", "Orange"]
 
     context = {
         "lstMaterials": lstMaterials,
         "lstSize": lstSize,
-        "lstCategory": lstCategory
+        "lstCategory": lstCategory,
+        "lstColor": lstColor
     }
 
     return render(request, 'RanktShirts/add.html', context)
@@ -47,7 +49,7 @@ def SaveTShirtPageView(request):
         # print(oArticleOfClothing)
         oArticleOfClothing.save()
 
-    return render(request, 'RanktShirts/index.html')
+    return render(request, 'RanktShirts/ranking.html')
 
 
 def DeleteTShirtPageView(request):

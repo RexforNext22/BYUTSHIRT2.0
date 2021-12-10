@@ -79,8 +79,8 @@
             </div> <!-- ./col- -->
             <div class="col-xs-12 col-sm-6">
                 <div class="input-field name">
-                    <span class= "input-icon" id="material">Cat</span>
-                    <select class="form-control" name="material" id="material" required>
+                    <span class= "input-icon" id="category">Cat</span>
+                    <select class="form-control" name="category" id="category" required>
                         <option value="">Choose Category Type</option>
                         {% for lstCategory in lstCategory%}
                         <option value="{{ lstCategory }}">{{ lstCategory }}</option>
@@ -93,8 +93,8 @@
 
             <div class="col-xs-12 col-sm-6">
                 <div class="input-field email">
-                    <span class= "input-icon" id="category">Mat</span>
-                    <select class="form-control" name="category" id="category" required>
+                    <span class= "input-icon" id="material">Mat</span>
+                    <select class="form-control" name="material" id="material" required>
                         <option value="">Choose Material Type</option>
                         {% for lstMaterials in lstMaterials%}
                         <option value="{{ lstMaterials }}">{{ lstMaterials }}</option>
@@ -117,16 +117,21 @@
             <div class="col-xs-12 col-sm-6">
                 <div class="input-field email">
                     <span class= "input-icon" id="pColor">Clr</span>
-                    <input type="text" class="form-control" name="pColor" placeholder="Primary Color" required>
+                    <select class="form-control" name="pColor" id="pColor" required>
+                        <option value="">Primary Color</option>
+                        {% for lstColor in lstColor%}
+                        <option value="{{ lstColor }}">{{ lstColor }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div> <!-- ./col- -->
             <div class="col-xs-12 col-sm-6">
                 <div class="input-field name">
                     <span class="btn-border">
-                        <button type="submit" class="btn btn-primary btn-custom-border text-uppercase">Add Swag</button>
+                        <button type="submit" class="btn btn-primary btn-custom-border text-uppercase" onclick="alert('Clothing added!'); location.href='ranking.html'">Add Swag</button>
                     </span>
                 </div>
-                <div class="msg-success">Your t-shirt was added!</div>
+                <div class="msg-success">Your clothing was added!</div>
                 <div class="msg-failed">Something went wrong, please try again later</div>
             </div> <!-- ./col- -->
         </form>
@@ -134,7 +139,7 @@
                     <nav class="page-nav clear">
                         <div class="container">
                             <div class="flex flex-middle space-between">
-                                <span class="prev-page"><a href="{%url 'ranking'%}" class="link">&larr; Prev Page</a></span>
+                                <span class="prev-page"><a href="{%url 'index'%}" class="link">&larr; Prev Page</a></span>
                                 <span class="copyright hidden-xs">Copyright &copy; 2021 BYU T-Shirts, All Rights Reserved.</span>
                                 <span class="next-page"><a href="{%url 'ranking'%}"  class="link">Next Page &rarr;</a></span>
                             </div>
